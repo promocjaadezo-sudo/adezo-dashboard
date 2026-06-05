@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ADEZO | Dashboard Właściciela V2</title>
+<style>
+:root{--bg:#07090d;--panel:#111620;--panel2:#0d1118;--card:#151b26;--gold:#d0aa62;--text:#f7f2e8;--muted:#9aa4b2;--line:#273040;--red:#ff5c5c;--green:#64dc8c;--blue:#67a9ff;--orange:#ffb451;--shadow:0 18px 55px rgba(0,0,0,.26)}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% -10%,#263047 0,#0b0e13 42%,#06070a 100%);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text)}.wrap{max-width:1580px;margin:0 auto;padding:24px}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:18px}.brand{display:flex;gap:14px;align-items:center}.mark{width:54px;height:54px;border-radius:18px;background:linear-gradient(145deg,rgba(208,170,98,.18),rgba(255,255,255,.04));border:1px solid rgba(208,170,98,.55);display:grid;place-items:center;color:var(--gold);font-size:26px}.brand h1{margin:0;font-size:30px;letter-spacing:.2px}.brand p{margin:5px 0 0;color:var(--muted)}.topright{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.chip{border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:14px;padding:10px 14px;color:var(--muted);font-size:13px}.chip b{color:var(--text)}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(7,1fr)}.card{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:22px;padding:17px;box-shadow:var(--shadow);backdrop-filter:blur(6px)}.kpi .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.6px}.kpi .value{display:block;font-size:28px;font-weight:850;margin-top:9px;line-height:1.1}.kpi .sub{display:block;margin-top:8px;color:var(--green);font-size:12px}.main{grid-template-columns:1.2fr .95fr .8fr;margin-top:14px}.lower{grid-template-columns:1fr 1fr 1fr;margin-top:14px}.section{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section h2{font-size:17px;margin:0}.pill{font-size:11px;color:#121212;background:var(--gold);padding:6px 10px;border-radius:999px;font-weight:800}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}.table th{color:var(--muted);font-weight:650}.num{text-align:right!important}.good{color:var(--green);font-weight:800}.bad{color:var(--red);font-weight:800}.warn{color:var(--orange);font-weight:800}.status{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.04);font-size:12px}.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}.mini{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:16px;padding:13px}.mini span{display:block;color:var(--muted);font-size:12px}.mini b{display:block;font-size:24px;margin-top:6px}.bars{display:grid;gap:12px}.barrow{display:grid;grid-template-columns:88px 1fr 54px;gap:10px;align-items:center;font-size:13px}.bar{height:12px;background:#252d3b;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),#f4dc9b);border-radius:999px}.alert{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}.dot{width:11px;height:11px;border-radius:50%;margin-top:4px;background:var(--red);flex:0 0 auto}.dot.y{background:var(--orange)}.dot.g{background:var(--green)}.muted{color:var(--muted)}.tiny{font-size:12px}.progress{height:13px;background:#242b38;border-radius:999px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold));border-radius:999px}.footer{margin-top:14px;text-align:right;color:var(--muted);font-size:12px}.err{color:var(--orange)}@media(max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.main,.lower{grid-template-columns:1fr 1fr}}@media(max-width:760px){.wrap{padding:14px}.top{align-items:flex-start;flex-direction:column}.kpis,.main,.lower,.statrow{grid-template-columns:1fr}.brand h1{font-size:23px}.kpi .value{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="mark">♛</div><div><h1>Dashboard Właściciela ADEZO</h1><p>Google Ads · Leady · Sprzedaż · Modele · Cele</p></div></div>
+    <div class="topright"><div class="chip">Zakres: <b>bieżące dane z arkusza</b></div><div class="chip" id="sync">Ładowanie danych...</div></div>
+  </div>
+
+  <div class="grid kpis">
+    <div class="card kpi"><span class="label">Koszt reklam</span><strong class="value" id="adCost">4 792 zł</strong><span class="sub">Google Ads / ręcznie</span></div>
+    <div class="card kpi"><span class="label">Kliknięcia</span><strong class="value" id="clicks">6 520</strong><span class="sub">z Google Ads</span></div>
+    <div class="card kpi"><span class="label">Leady</span><strong class="value" id="leadsTotal">0</strong><span class="sub" id="leadGoalText">cel: 120</span></div>
+    <div class="card kpi"><span class="label">HOT leady</span><strong class="value" id="hotLeads">0</strong><span class="sub">do kontaktu natychmiast</span></div>
+    <div class="card kpi"><span class="label">Sprzedaż</span><strong class="value" id="salesValue">0 zł</strong><span class="sub" id="salesGoalText">cel: 352 000 zł</span></div>
+    <div class="card kpi"><span class="label">Zamówienia</span><strong class="value" id="ordersCount">0</strong><span class="sub" id="orderGoalText">cel: 16</span></div>
+    <div class="card kpi"><span class="label">Śr. wartość</span><strong class="value" id="avgOrder">0 zł</strong><span class="sub">średnia zamówienia</span></div>
+  </div>
+
+  <div class="grid main">
+    <div class="card">
+      <div class="section"><h2>Kampanie Google Ads</h2><span class="pill">MARKETING</span></div>
+      <table class="table" id="campaignTable"><thead><tr><th>Kampania / grupa</th><th class="num">Koszt</th><th class="num">Kliknięcia</th><th class="num">Konw.</th><th>Status</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="card">
+      <div class="section"><h2>Leady i status</h2><span class="pill">CRM</span></div>
+      <div class="statrow">
+        <div class="mini"><span>HOT</span><b id="hotBox">0</b></div>
+        <div class="mini"><span>WARM</span><b id="warmBox">0</b></div>
+        <div class="mini"><span>COLD</span><b id="coldBox">0</b></div>
+        <div class="mini"><span>Wszystkie</span><b id="allBox">0</b></div>
+      </div>
+      <div class="section"><h2>Źródła leadów</h2></div>
+      <div class="bars" id="sourceBars"></div>
+    </div>
+    <div class="card">
+      <div class="section"><h2>Ostatnie leady</h2><span class="pill">LIVE</span></div>
+      <table class="table" id="latestLeads"><thead><tr><th>Data</th><th>Klient</th><th>Status</th></tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <div class="grid lower">
+    <div class="card">
+      <div class="section"><h2>Sprzedaż</h2><span class="pill">WYNIK</span></div>
+      <div class="statrow">
+        <div class="mini"><span>Wygrane</span><b id="wonCount">0</b></div>
+        <div class="mini"><span>W trakcie</span><b id="openCount">0</b></div>
+        <div class="mini"><span>Przegrane</span><b id="lostCount">0</b></div>
+        <div class="mini"><span>Skuteczność</span><b id="winRate">0%</b></div>
+      </div>
+      <div class="muted tiny">Realizacja celu sprzedaży</div>
+      <div class="progress"><i id="salesProgress" style="width:0%"></i></div>
+      <div class="muted tiny" id="salesProgressText" style="margin-top:7px">0%</div>
+    </div>
+    <div class="card">
+      <div class="section"><h2>Modele ADEZO</h2><span class="pill">PRODUKT</span></div>
+      <table class="table" id="modelTable"><thead><tr><th>Model</th><th class="num">Zapytania</th><th class="num">Oferty</th><th class="num">Sprzedaże</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="card">
+      <div class="section"><h2>Alarmy właściciela</h2><span class="pill">KONTROLA</span></div>
+      <div id="alerts"></div>
+    </div>
+  </div>
+  <div class="footer">ADEZO Owner Command Center V2 · dane pobierane z opublikowanego Google Sheets</div>
+</div>
+<script>
+const SHEETS = [
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vS58NbCayb8C6vJ1hHcGR2kUsvimrtUaQ0y7eNHiNhCo9BI2JYwunO2uQO-1tQ0PA/pub?gid=235223428&single=true&output=csv',
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vS58NbCayb8C6vJ1hHcGR2kUsvimrtUaQ0y7eNHiNhCo9BI2JYwunO2uQO-1tQ0PA/pub?gid=1439280170&single=true&output=tsv',
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vS58NbCayb8C6vJ1hHcGR2kUsvimrtUaQ0y7eNHiNhCo9BI2JYwunO2uQO-1tQ0PA/pub?gid=1043796077&single=true&output=csv',
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vS58NbCayb8C6vJ1hHcGR2kUsvimrtUaQ0y7eNHiNhCo9BI2JYwunO2uQO-1tQ0PA/pub?gid=319259737&single=true&output=csv'
+];
+const FALLBACK = {
+  leads:[{Data:'2026-06-05','Imię i nazwisko':'Jan Kowalski',Telefon:'500123456',Miasto:'Warszawa','Źródło':'Google Ads',Model:'Tirana',Status:'HOT'}],
+  sales:[{Data:'2026-06-05',Klient:'Jan Kowalski',Model:'Tirana','Wartość':'22000',Handlowiec:'Magda',Status:'Wygrana'}],
+  models:[{Model:'Tirana',Zapytania:'0',Oferty:'0','Sprzedaże':'0'},{Model:'Astana',Zapytania:'0',Oferty:'0','Sprzedaże':'0'},{Model:'Chaga',Zapytania:'0',Oferty:'0','Sprzedaże':'0'},{Model:'Waleta',Zapytania:'0',Oferty:'0','Sprzedaże':'0'}],
+  settings:[{'Parametr':'Cel sprzedaży','Wartość':'16'},{'Parametr':'Średnia wartość zamówienia','Wartość':'22000'},{'Parametr':'Cel leadów','Wartość':'120'}]
+};
+function splitRows(text){let rows=[],row=[],cell='',q=false;for(let i=0;i<text.length;i++){let c=text[i],n=text[i+1];if(c==='"'&&q&&n==='"'){cell+='"';i++;continue}if(c==='"'){q=!q;continue}if((c===','||c==='\t')&&!q){row.push(cell);cell='';continue}if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(cell);if(row.some(x=>String(x).trim()!==''))rows.push(row);row=[];cell='';continue}cell+=c}row.push(cell);if(row.some(x=>String(x).trim()!==''))rows.push(row);return rows}
+function parseTable(text){const rows=splitRows(text.trim());if(!rows.length)return [];const head=rows[0].map(h=>h.trim());return rows.slice(1).map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||'').trim()]))).filter(o=>Object.values(o).some(Boolean))}
+function n(v){return Number(String(v||'0').replace(/[^0-9,.-]/g,'').replace(',','.'))||0}
+function money(v){return Math.round(v).toLocaleString('pl-PL')+' zł'}
+function countBy(arr,key){return arr.reduce((a,x)=>{let v=(x[key]||'Brak').trim()||'Brak';a[v]=(a[v]||0)+1;return a},{})}
+function classify(data){const h=Object.keys(data[0]||{}).join('|').toLowerCase();if(h.includes('imię')||h.includes('telefon')||h.includes('źródło'))return 'leads';if(h.includes('klient')&&h.includes('wartość'))return 'sales';if(h.includes('model')&&h.includes('zapytania'))return 'models';if(h.includes('parametr')&&h.includes('wartość'))return 'settings';return 'unknown'}
+async function load(){let loaded={leads:[],sales:[],models:[],settings:[]},ok=0;await Promise.all(SHEETS.map(async url=>{try{const res=await fetch(url,{cache:'no-store'});const txt=await res.text();const data=parseTable(txt);const type=classify(data);if(type!=='unknown'){loaded[type]=data;ok++}}catch(e){}}));for(const k of Object.keys(FALLBACK)){if(!loaded[k].length)loaded[k]=FALLBACK[k]}render(loaded,ok)}
+function setting(settings,name,def){const r=settings.find(x=>(x.Parametr||'').toLowerCase().includes(name.toLowerCase()));return r?n(r.Wartość):def}
+function render(d,ok){const goalOrders=setting(d.settings,'Cel sprzedaży',16),avgTarget=setting(d.settings,'Średnia',22000),goalLeads=setting(d.settings,'Cel leadów',120),goalValue=goalOrders*avgTarget;const leads=d.leads,sales=d.sales,models=d.models;const won=sales.filter(x=>(x.Status||'').toLowerCase().includes('wygr')).length;const open=sales.filter(x=>(x.Status||'').toLowerCase().includes('trak')||(x.Status||'').toLowerCase().includes('otw')).length;const lost=sales.filter(x=>(x.Status||'').toLowerCase().includes('przegr')).length;const salesValue=sales.filter(x=>(x.Status||'').toLowerCase().includes('wygr')).reduce((s,x)=>s+n(x.Wartość),0);const avg=won?salesValue/won:0;const hot=leads.filter(x=>(x.Status||'').toUpperCase()==='HOT').length,warm=leads.filter(x=>(x.Status||'').toUpperCase()==='WARM').length,cold=leads.filter(x=>(x.Status||'').toUpperCase()==='COLD').length;document.getElementById('sync').innerHTML= ok?`Połączono: <b>${ok} ark.</b>`:'Tryb demo / sprawdź publikację CSV';document.getElementById('leadsTotal').textContent=leads.length;document.getElementById('hotLeads').textContent=hot;document.getElementById('hotBox').textContent=hot;document.getElementById('warmBox').textContent=warm;document.getElementById('coldBox').textContent=cold;document.getElementById('allBox').textContent=leads.length;document.getElementById('leadGoalText').textContent=`cel: ${goalLeads}`;document.getElementById('salesValue').textContent=money(salesValue);document.getElementById('ordersCount').textContent=won;document.getElementById('avgOrder').textContent=money(avg);document.getElementById('salesGoalText').textContent=`cel: ${money(goalValue)}`;document.getElementById('orderGoalText').textContent=`cel: ${goalOrders}`;document.getElementById('wonCount').textContent=won;document.getElementById('openCount').textContent=open;document.getElementById('lostCount').textContent=lost;document.getElementById('winRate').textContent=(sales.length?Math.round(won/sales.length*100):0)+'%';let pct=Math.min(100,Math.round(salesValue/goalValue*100));document.getElementById('salesProgress').style.width=pct+'%';document.getElementById('salesProgressText').textContent=`${pct}% celu (${money(salesValue)} / ${money(goalValue)})`;
+const latest=[...leads].slice(-6).reverse();document.querySelector('#latestLeads tbody').innerHTML=latest.map(x=>`<tr><td>${x.Data||''}</td><td>${x['Imię i nazwisko']||x.Lead||''}</td><td><span class="status">${x.Status||''}</span></td></tr>`).join('')||'<tr><td colspan="3" class="muted">Brak leadów</td></tr>';
+const sources=countBy(leads,'Źródło');const max=Math.max(1,...Object.values(sources));document.getElementById('sourceBars').innerHTML=Object.entries(sources).map(([k,v])=>`<div class="barrow"><b>${k}</b><div class="bar"><i style="width:${Math.max(6,v/max*100)}%"></i></div><b>${v}</b></div>`).join('')||'<div class="muted">Brak danych</div>';
+document.querySelector('#modelTable tbody').innerHTML=models.map(x=>`<tr><td>${x.Model||''}</td><td class="num">${n(x.Zapytania)}</td><td class="num">${n(x.Oferty)}</td><td class="num">${n(x['Sprzedaże'])}</td></tr>`).join('');
+const campaigns=[['Drzwi drewniane ekskluzywne','2 145 zł',2830,238,'Skalować'],['Adezo','1 421 zł',1752,112,'Bardzo dobre'],['Drzwi zewnętrzne','684 zł',964,67,'Dobre'],['Szukali konkurencji','219 zł',403,21,'Sprawdzić'],['GDN Remarketing','170 zł',571,12,'Ograniczyć']];document.querySelector('#campaignTable tbody').innerHTML=campaigns.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="${r[4].includes('Ogranic')?'bad':r[4].includes('Spraw')?'warn':'good'}">${r[4]}</td></tr>`).join('');
+const alerts=[];if(hot>0)alerts.push(['g',`${hot} HOT leadów w arkuszu`,'Sprawdź, czy każdy ma kontakt tego samego dnia']);if(leads.length<goalLeads)alerts.push(['y',`Leady poniżej celu ${goalLeads}`,'Dopilnuj kampanii i formularza']);if(won<goalOrders)alerts.push(['y',`Sprzedaż poniżej celu ${goalOrders}`,'Kontroluj oferty i follow-up']);alerts.push(['y','Konwersje Google Ads nadal do weryfikacji','Pobranie katalogu nie powinno być głównym leadem']);document.getElementById('alerts').innerHTML=alerts.map(a=>`<div class="alert"><span class="dot ${a[0]}"></span><div><b>${a[1]}</b><div class="muted tiny">${a[2]}</div></div></div>`).join('');}
+load();
+</script>
+</body>
+</html>
