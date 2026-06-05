@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ADEZO | Dashboard Właściciela</title>
+<style>
+:root{--bg:#0b0d10;--card:#141820;--card2:#101319;--gold:#c9a45c;--text:#f5f2ea;--muted:#9fa6b2;--red:#ff5b5b;--green:#62d58b;--blue:#7db7ff;--line:#252b35}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#1c2028,#08090b 58%);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text)}.wrap{max-width:1480px;margin:0 auto;padding:28px}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}.brand{display:flex;gap:14px;align-items:center}.logo{width:54px;height:54px;border:1px solid var(--gold);display:grid;place-items:center;border-radius:16px;color:var(--gold);font-weight:800;letter-spacing:1px}.brand h1{margin:0;font-size:28px;letter-spacing:.5px}.brand p{margin:4px 0 0;color:var(--muted)}.date{padding:12px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);color:var(--muted)}.grid{display:grid;gap:16px}.kpis{grid-template-columns:repeat(6,1fr)}.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.18)}.kpi span{color:var(--muted);font-size:13px}.kpi strong{display:block;font-size:28px;margin-top:10px}.kpi small{display:block;margin-top:8px;color:var(--green)}.main{grid-template-columns:1.2fr .8fr;margin-top:16px}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.section-title h2{font-size:18px;margin:0}.pill{font-size:12px;color:#111;background:var(--gold);padding:6px 10px;border-radius:999px;font-weight:700}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}.table th{color:var(--muted);font-weight:600}.bad{color:var(--red);font-weight:700}.good{color:var(--green);font-weight:700}.bars{display:grid;gap:12px}.barrow{display:grid;grid-template-columns:90px 1fr 45px;align-items:center;gap:10px;color:var(--muted);font-size:13px}.bar{height:12px;background:#242a33;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),#f0d48b);border-radius:999px}.sales{grid-template-columns:repeat(4,1fr);margin-top:16px}.lower{grid-template-columns:1fr 1fr 1fr;margin-top:16px}.alert{display:flex;gap:10px;align-items:flex-start;padding:12px;border-bottom:1px solid var(--line)}.dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:var(--red)}.dot.y{background:#ffd166}.dot.g{background:var(--green)}.muted{color:var(--muted)}.footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:right}@media(max-width:1050px){.kpis,.sales,.main,.lower{grid-template-columns:1fr 1fr}.top{flex-direction:column;align-items:flex-start}}@media(max-width:680px){.wrap{padding:16px}.kpis,.sales,.main,.lower{grid-template-columns:1fr}.brand h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="logo">AD</div><div><h1>Dashboard Właściciela ADEZO</h1><p>Reklama → Lead → Oferta → Sprzedaż</p></div></div>
+    <div class="date">Zakres: bieżący miesiąc · wersja V1</div>
+  </div>
+
+  <div class="grid kpis">
+    <div class="card kpi"><span>Koszt reklam</span><strong>4 792 zł</strong><small>Google Ads</small></div>
+    <div class="card kpi"><span>Kliknięcia</span><strong>6 520</strong><small>CTR 4,26%</small></div>
+    <div class="card kpi"><span>Konwersje</span><strong>497</strong><small>do weryfikacji</small></div>
+    <div class="card kpi"><span>Koszt konwersji</span><strong>9,63 zł</strong><small>zawyżone katalogiem</small></div>
+    <div class="card kpi"><span>Realne kontakty</span><strong>35</strong><small>tel + msg + email</small></div>
+    <div class="card kpi"><span>Cel sprzedaży</span><strong>16 / mies.</strong><small>352 000 zł</small></div>
+  </div>
+
+  <div class="grid main">
+    <div class="card">
+      <div class="section-title"><h2>Kampanie / grupy reklam</h2><span class="pill">Google Ads</span></div>
+      <table class="table"><thead><tr><th>Grupa</th><th>Kliknięcia</th><th>Konwersje</th><th>Status</th></tr></thead><tbody>
+        <tr><td>Drzwi drewniane ekskluzywne</td><td>749</td><td>85</td><td class="good">Skalować</td></tr>
+        <tr><td>Adezo</td><td>66</td><td>16</td><td class="good">Bardzo dobre</td></tr>
+        <tr><td>Drzwi zewnętrzne</td><td>132</td><td>13</td><td class="good">Dobre</td></tr>
+        <tr><td>Szukali konkurencji</td><td>598</td><td>0</td><td class="bad">Przebudować</td></tr>
+        <tr><td>GDN Remarketing</td><td>403</td><td>1</td><td class="bad">Ograniczyć</td></tr>
+      </tbody></table>
+    </div>
+    <div class="card">
+      <div class="section-title"><h2>Leady według jakości</h2><span class="pill">CRM</span></div>
+      <div class="bars">
+        <div class="barrow"><b>HOT</b><div class="bar"><i style="width:62%"></i></div><b>18</b></div>
+        <div class="barrow"><b>WARM</b><div class="bar"><i style="width:78%"></i></div><b>23</b></div>
+        <div class="barrow"><b>COLD</b><div class="bar"><i style="width:40%"></i></div><b>12</b></div>
+        <div class="barrow"><b>Architekci</b><div class="bar"><i style="width:28%"></i></div><b>8</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid sales">
+    <div class="card kpi"><span>Oferty wysłane</span><strong>25</strong><small>cel: 25+</small></div>
+    <div class="card kpi"><span>Sprzedaż</span><strong>352 000 zł</strong><small>16 zamówień x 22k</small></div>
+    <div class="card kpi"><span>Średnia wartość</span><strong>22 000 zł</strong><small>premium custom</small></div>
+    <div class="card kpi"><span>Skuteczność</span><strong>16%</strong><small>cel bazowy ADEZO</small></div>
+  </div>
+
+  <div class="grid lower">
+    <div class="card"><div class="section-title"><h2>Modele ADEZO</h2></div>
+      <table class="table"><tbody><tr><td>Tirana</td><td>45 zapytań</td></tr><tr><td>Astana</td><td>31 zapytań</td></tr><tr><td>Chaga</td><td>18 zapytań</td></tr><tr><td>Waleta</td><td>9 zapytań</td></tr></tbody></table>
+    </div>
+    <div class="card"><div class="section-title"><h2>Praca sprzedaży</h2></div>
+      <table class="table"><thead><tr><th>Osoba</th><th>Tel.</th><th>Oferty</th><th>Sprzedaż</th></tr></thead><tbody><tr><td>Magda 1</td><td>34</td><td>13</td><td>8</td></tr><tr><td>Magda 2</td><td>29</td><td>12</td><td>8</td></tr></tbody></table>
+    </div>
+    <div class="card"><div class="section-title"><h2>Alarmy właściciela</h2></div>
+      <div class="alert"><span class="dot"></span><div><b>Brak pomiaru formularza wysłanego</b><div class="muted">Dodać generate_lead / premium_form_submit</div></div></div>
+      <div class="alert"><span class="dot y"></span><div><b>Pobranie katalogu liczone jako główna konwersja</b><div class="muted">Przenieść do mikro-konwersji</div></div></div>
+      <div class="alert"><span class="dot g"></span><div><b>Kampania Adezo działa bardzo dobrze</b><div class="muted">Zostawić i kontrolować koszt</div></div></div>
+    </div>
+  </div>
+  <div class="footer">ADEZO Owner Command Center · dane przykładowe / do podłączenia z Google Ads, GA4, Sheets, Livespace</div>
+</div>
+</body>
+</html>
