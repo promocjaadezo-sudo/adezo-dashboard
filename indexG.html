@@ -151,7 +151,9 @@ function normPerson(s){var x=norm(s).replace(/[_-]/g," ").replace(/\s+/g," "); i
 function normSource(s){var x=norm(s).replace(/[_-]/g," ").replace(/\s+/g," ");if(!x)return"Brak";if(x.indexOf("google")>-1||x==="ads"||x.indexOf("gads")>-1)return"Google Ads";if(x.indexOf("facebook")>-1||x==="fb"||x.indexOf("meta")>-1)return"Facebook";if(x.indexOf("tiktok")>-1||x.indexOf("tik tok")>-1)return"TikTok";if(x.indexOf("youtube")>-1||x==="yt")return"YouTube";if(x.indexOf("polec")>-1||x.indexOf("rekom")>-1)return"Polecenia";if(x.indexOf("arch")>-1)return"Architekci";if(x.indexOf("organic")>-1||x.indexOf("seo")>-1)return"Organic";return x.replace(/\w/g,function(c){return c.toUpperCase()})}
 
 function splitRows(text){var rows=[],row=[],cell="",q=false;for(var i=0;i<text.length;i++){var c=text[i],nx=text[i+1];if(c=='"'&&q&&nx=='"'){cell+='"';i++;continue}if(c=='"'){q=!q;continue}if((c==","||c=="	")&&!q){row.push(cell);cell="";continue}if((c=="
-"||c=="")&&!q){if(c==""&&nx=="
+"||c=="
+")&&!q){if(c=="
+"&&nx=="
 ")i++;row.push(cell);if(row.some(function(x){return String(x).trim()!==""}))rows.push(row);row=[];cell="";continue}cell+=c}row.push(cell);if(row.some(function(x){return String(x).trim()!==""}))rows.push(row);return rows}
 function parseTable(text){var rows=splitRows(String(text||"").trim());if(!rows.length)return[];var head=rows[0].map(function(h){return h.trim()});return rows.slice(1).map(function(r){var o={};head.forEach(function(h,i){o[h]=(r[i]||"").trim()});return o}).filter(function(o){return Object.values(o).some(Boolean)})}
 
